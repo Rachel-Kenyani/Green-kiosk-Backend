@@ -1,0 +1,99 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  img {
+    max-width: 14rem;
+    max-height: 4rem;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+  }
+  
+  button {
+    background-color: #ddc4d5;
+    padding: 10px 20px;
+    border-radius: 10px !important;
+    border: none;
+    cursor: pointer;
+  }
+  button >a{
+    color: rgb(230, 31, 206) !important;
+    text-decoration: none;
+  }
+  button:hover {
+    background-color: #ccc;
+  }
+.container {
+    display: flex ;
+    flex-wrap: wrap;
+}
+.product{
+  border: 1px solid #ccc;
+  width: 15rem;
+  height: 20rem;
+}
+
+/* Product details */
+.detail{
+  padding-left: 45%;
+}
+.product >a{
+  text-decoration: none !important;
+  color: black !important;
+}
+.customer{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.detail >h4 > .span{
+  background-color: #9d2778;
+  font-weight: 100;
+  font-size: small;
+}
+
+/* Edit product */
+.d{
+  background-color: #f3f3f3 !important;
+}
+.upload-form {
+  width: 500px;
+  margin-left: 30%;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.upload-form h3 {
+  margin-bottom: 20px;
+}
+
+.upload-form label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.upload-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.upload-form button {
+  background-color: #8BC746;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}

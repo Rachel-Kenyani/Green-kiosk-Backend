@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/inventory.css'%}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        {% for order in orders %}
+        <div class="product">
+                <a href="{% url 'order_detail' id=order.id %}">{{ review.id }}</a>
+                <br>   
+                <br>         
+            <button>
+                <a href="{% url 'order_update' id=order.id %}">Edit details</a>
+            </button>
+        </div>
+            {% endfor %}
+    </div>
+    quantity = models.PositiveIntegerField()
+    total_price = models.DecimalField(max_digits=8, decimal_places=2)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated
+</body>
+</html>

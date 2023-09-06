@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/cart.css'%}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <link rel="icon" type="image/x-icon" href="/product_images/image/favicon.png">
+    <title>Document</title>
+</head>
+
+<body id="body">
+        <header class="header">
+          <img class="logo" src="/product_images/image/logo.png" alt="">
+
+          <nav class="navbar">
+              <a href="index.html">Home</a>
+              <a href="{% url 'products_list_view' }">Shop</a>
+              <a href="https://kenyani-mama-mboga.netlify.app/about.html">About</a>
+              <a href="review.html">Review</a>
+          </nav>
+
+          <div class="icons">
+              <a href="#"id="menu-btn" class="fas fa-bars">
+              <!-- <a href="#"id="search-btn" class="fas fa-search"></a> -->
+              <a href="cart.html"id="cart-btn" class="fas fa-shopping-cart"></a>
+              <a href="login.html" id="login-btn" class="fas fa-user"></a></a>
+          </div>
+          <form action="" class="search-form">
+              <input type="search" placeholder="search here..." id="search-box">
+              <label for="search-box" class="fas fa-search"></label>
+          </form>
+        </header>
+        
+        
+        <!-- <section class="columns">
+          
+          <div>
+            <h1>selected item(s)</h1>
+          </div>
+          <div>
+            <h1>Unit price</h1>
+          </div>
+          <div>
+            <h1>quantity</h1>
+          </div>
+          <div>
+            <h1>goods amount</h1>
+          </div>
+        </section> -->
+        
+
+        <!-- products -->
+        <div class="columns"></div>
+          <button><a href="{% url 'upload_customer' %}">Upload detail</a></button>
+    
+        <section class="product1">
+          {% for customer in customers %}
+
+          <a href="{% url 'customer_detail' id=customer.id %}"><h4>{{ customer.name }}</h4></a>
+            
+            
+            <br>   
+            <br>
+          
+        
+            {% endfor %}
+        </section>
+        
+       
+        <section class="credit">copyright &copy; by techno sync | all rights reserved!</section>
+        
+
+
+    </body>
+    </html>

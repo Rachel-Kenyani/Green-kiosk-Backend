@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/inventory.css' %}">
+    <title>Document</title>
+</head>
+
+<body >
+<div class="detail">
+    <h4>{{ product.name }}</h4>
+    <img src="{{product.image.url}}" alt="image"></img>
+    <p>{{ product.description }}</p>
+    <span>{{ product.price }}</span>
+    <br>
+    <br>
+    <a href="{% url 'cart_list' %}"><button>Add to Cart</button></a>
+    
+    
+    <!-- <a href="{% url 'products_edit_view' id=product.id %}">
+        <button>Edit details</button>
+    </a> -->
+    
+</div>  
+</body>
+
+</html>

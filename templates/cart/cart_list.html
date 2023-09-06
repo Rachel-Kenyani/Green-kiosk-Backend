@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/cart.css'%}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <link rel="icon" type="image/x-icon" href="/product_images/image/favicon.png">
+    <title>Document</title>
+</head>
+<body id="body">
+        <header class="header">
+          <img class="logo" src="/product_images/image/logo.png" alt="">
+
+          <nav class="navbar">
+              <a href="index.html">Home</a>
+              <a href="{% url 'products_list_view' }">Shop</a>
+              <a href="https://kenyani-mama-mboga.netlify.app/about.html">About</a>
+              <a href="review.html">Review</a>
+          </nav>
+
+          <div class="icons">
+              <a href="#"id="menu-btn" class="fas fa-bars">
+              <!-- <a href="#"id="search-btn" class="fas fa-search"></a> -->
+              <a href="cart.html"id="cart-btn" class="fas fa-shopping-cart"></a>
+              <a href="login.html" id="login-btn" class="fas fa-user"></a></a>
+          </div>
+          <form action="" class="search-form">
+              <input type="search" placeholder="search here..." id="search-box">
+              <label for="search-box" class="fas fa-search"></label>
+          </form>
+        </header>
+        
+        
+        <!-- <section class="columns">
+          
+          <div>
+            <h1>selected item(s)</h1>
+          </div>
+          <div>
+            <h1>Unit price</h1>
+          </div>
+          <div>
+            <h1>quantity</h1>
+          </div>
+          <div>
+            <h1>goods amount</h1>
+          </div>
+        </section> -->
+        
+
+        <!-- products -->
+        <div class="columns"></div>
+          <!-- <button><a href="{% url 'product_upload_view' %}">Upload detail</a></button> -->
+    
+        <section class="product1">
+          {% for cart in carts %}
+          <div>
+            <input type="checkbox">
+          </div>
+          
+            <div class="describe">
+                <a href="{% url 'cart_detail' id=cart.id %}">
+                    <img src="{{ cart.image.url }}" alt="">
+                    <h4>{{cart.product_name}}</h4>
+                </a>
+            </div>
+
+            <div class="price">
+              <h4>{{ cart.price }}</h4>
+            </div>
+
+            <div class="number">
+              <input type="number" value="1"/>
+            </div>
+
+            <div class="delete">
+              <a href="#"><i class="fa fa-trash"></i></a>
+            </div>  
+            {% endfor %}
+        </section>
+        
+        <section class="all">
+          <div class="first">
+            <input type="checkbox">
+            <h3>select all</h3>
+          </div>
+          <div class="first">
+            <a href="#"><i class="fa fa-trash"></i></a>
+            <h3>remove all</h3>
+          </div>
+        </section>
+        <section class="out">
+          <div class="amount">
+            <h1>total:</h1>
+            <output>KES 630</output>
+          </div>
+          <button class="checkout"><a href="payment.html">checkout</a></button>
+          
+
+
+          payment_list
+        </section>
+        <section class="credit">copyright &copy; by techno sync | all rights reserved!</section>
+        
+
+
+
+    <!-- <div class="container">
+        {% for cart in carts %}
+        <div class="product">
+
+            <h3>{{ cart.name }}</h3>
+            <img src="{{ cart.image.url }}" alt="image"></img>
+            <p>{{cart.description }}</p>
+            <h5>{{ cart.price }}</h5>
+            <button>
+                <a href="{% url 'cart_detail' id=cart.id %}">View details</a>
+            </button>
+            <button>
+                <a href="{% url 'edit_cart' id=cart.id %}">Edit details</a>
+            </button>
+        </div>
+            {% endfor %}
+    </div> -->
+
+</body>
+</html>

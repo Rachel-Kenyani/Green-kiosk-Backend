@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="image/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <img class="logo" src="/product_images/image/logo.png" alt="">
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="https://kenyani-mama-mboga.netlify.app/about.html">About</a>
+            <a href="review.html">Review</a>
+        </nav>
+    
+        <div class="icons">
+            <a href="#"id="menu-btn" class="fas fa-bars">
+            <!-- <a href="#"id="search-btn" class="fas fa-search"></a> -->
+            <form action="" class="search-form">
+                <input type="search" placeholder="search here..." id="search-box">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+            <a href="{% url 'cart_list'%}"id="cart-btn" class="fas fa-shopping-cart"></a>       
+            <a href="login.html" id="-btn" class="fas fa-user"></a></a>
+        </div>
+    
+
+    
+    </header>
+    
+    <!-- section1 -->
+        <div class="heading">
+            <h1>Our Shop</h1>
+        </div>
+    
+    <section class="category">
+        <h1 class="title"> Our <span>Category</span> <a href="#"></a> </h1>
+        <div class="box-container">
+            <a href="#fruits" class="box">
+                <img src="/product_images/image/fruits.png" alt="">
+                <h3>fruits</h3>
+            </a>
+            <a href="#vegetables" class="box">
+                <img src="/product_images/image/veggies.png" alt="">
+                <h3>vegetables</h3>
+            </a>
+            <a href="#cereals" class="box">
+                <img src="/product_images/image/cereals.png" alt="">
+                <h3>Cereals</h3>
+            </a>
+        </div>
+    </section>
+    
+    <!-- fruits -->
+    <section class="products">
+        <h1 class="title" id="vegetables"> fresh <span>fruits</span> </h1> 
+        <!-- <a href="{% url 'product_upload_view' %}">
+            <button>Upload detail</button>
+        </a> -->
+        <div class="box-container">
+            
+    
+                {% for product in products %}
+        
+                <div class="box">
+                    <div class="icons">
+                        <a href="{% url 'cart_list' %}" class="fas fa-shopping-cart"></a>
+                    </div>
+                    <div class="image">
+                        <img src="{{ product.image.url }}" alt="">
+                    </div>
+                    <div class="content">
+                        <a href="{% url 'products_detail_view' id=product.id %}">
+                           <h3>{{ product.name }}</h3>
+                           <div class="price"><h3>{{ product.price }}</h3></div>
+                           
+
+                    
+                        
+                        </a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+</body>
+</html>
+
